@@ -1,6 +1,8 @@
-function solution() {
+function solution(x) {
   let answer;
+  answer = x.toUpperCase();
   return answer;
 }
 
-console.log(solution());
+const str = "ItisTimetoStudy";
+console.log(solution(str));

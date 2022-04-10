@@ -13,11 +13,17 @@ function solution(arr) {
     } else if (arr[i] == 0) {
       cnt = 0;
     }
-
     score.push(cnt);
   }
   const answer = score.reduce((a, b) => a + b, 0);
   console.log(score);
+  /*let res = 0;
+  for (let x of arr) {
+    if (x === 1) {
+      cnt++;
+      res += cnt;
+    } else cnt = 0;
+  }*/
   return answer;
 }
 

@@ -7,6 +7,9 @@ function solution(x) {
   for (let j of answer) {
     res += j;
   }
+  /*for (let i = 0; i < x.length; i++) {
+    if (x.indexof(x[i] === i)) res+=s[i];
+  }*/
   return res;
 }
 

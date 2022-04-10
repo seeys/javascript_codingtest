@@ -1,21 +1,16 @@
 function solution(a, b, c) {
-  let answer = 0;
+  let answer = a + b + c;
   let max;
-  let res;
+  let res = "YES";
   if (a < b) {
     max = b;
-    answer = a + c;
   } else {
     max = a;
-    answer = b + c;
   }
   if (c > max) {
     max = c;
-    answer = a + b;
   }
-  if (max < answer) {
-    res = "YES";
-  } else {
+  if (max >= answer - max) {
     res = "NO";
   }
   return res;

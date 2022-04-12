@@ -1,21 +1,25 @@
-function solution(str, x) {
+function solution2(str, t) {
   let answer = [];
-  let x_idx = [];
-  // 문자 x의 인덱스 저장
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] === x) {
-      x_idx.push(i);
+  let p = 1000;
+  for (let x of str) {
+    if (x === t) {
+      p = 0;
+      answer.push(p);
+    } else {
+      p++;
+      answer.push(p);
     }
   }
-  for (let i of str) {
-    let min_v = [];
-    for (let j of x_idx) {
-      min_v.push(Math.abs(str.indexOf(i) - j));
+  p = 1000;
+  for (let i = str.length - 1; i >= 0; i--) {
+    if (str[i] === t) {
+      p = 0;
+    } else {
+      p++;
+      answer[i] = Math.min(answer[i], p);
     }
-    answer.push(Math.min(...min_v));
   }
   return answer;
 }
-
 const str = "teachermode";
-console.log(solution(str, "e"));
+console.log(solution2("abceleeacode", "e"));

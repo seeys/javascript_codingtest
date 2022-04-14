@@ -17,5 +17,21 @@ function isPrime(n) {
   }
   return true;
 }
+
+function solution2(arr) {
+  let answer = [];
+  for (let x of arr) {
+    let res = 0;
+    // let res = x.toString().split('').reverse().join('');
+    while (x) {
+      let t = x % 10;
+      res = res * 10 + t;
+      x = parseInt(x / 10);
+    }
+    if (isPrime(res)) answer.push(res);
+  }
+
+  return answer;
+}
 const arr = [32, 55, 62, 20, 250, 370, 200, 100, 100];
 solution(arr);

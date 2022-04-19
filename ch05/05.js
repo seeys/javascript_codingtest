@@ -1,12 +1,18 @@
-function solution(n, a) {
+function solution(k, a) {
   let answer = 0;
-  let max_price = Number.MIN_SAFE_INTEGER;
   let len = a.length;
-  for (let i = 0; i < len - 2; i++) {
-    answer = a[i] + a[i + 1] + a[i + 2];
-    max_price = Math.max(max_price, answer);
+  let sum = 0;
+  for (let i = 0; i < k; i++) {
+    sum += a[i];
   }
-  return max_price;
+  answer = sum;
+  for (let i = k; i < len; i++) {
+    sum = sum + a[i] - a[i - k];
+    if (answer < sum) {
+      answer = sum;
+    }
+  }
+  return answer;
 }
 
 let a = [12, 15, 11, 20, 25, 10, 20, 19, 13, 15];

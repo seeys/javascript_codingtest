@@ -13,5 +13,22 @@ function solution(n, a) {
   }
   return answer;
 }
+
+function solution2(n, a) {
+  let answer = 0;
+  let lt = 0;
+  let sum = 0;
+  for (let rt = 0; rt < a.length; rt++) {
+    sum += a[rt];
+    if (sum === n) answer++;
+    while (sum >= n) {
+      sum -= a[lt++];
+      if (sum === n) {
+        answer++;
+      }
+    }
+  }
+  return answer;
+}
 let a = [1, 2, 1, 3, 1, 1, 1, 2];
-console.log(solution(6, a));
+console.log(solution2(6, a));

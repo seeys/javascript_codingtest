@@ -1,16 +1,14 @@
-function solution(a, b) {
-  let queue = [];
-  for (let x of b) {
-    queue.push(x);
+function solution(need, plan) {
+  let answer = "YES";
+  let queue = need.split("");
+  for (let x of plan) {
+    if (queue.includes(x)) {
+      if (x !== queue.shift()) return "NO";
+    }
   }
-  for (let i = 0; i < b.length; i++) {
-    if (a.includes(b[i])) queue.push(queue.shift());
-    else queue.shift();
-  }
-  if (a === queue.join("")) return "YES";
-  else return "NO";
+  if (queue.length > 0) return "NO";
+  return answer;
 }
-
 const str = "CAB";
 const str1 = "CBDAGE";
 

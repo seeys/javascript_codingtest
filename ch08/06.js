@@ -1,18 +1,17 @@
 function solution(c, arr) {
-  let answer = [];
+  let answer = Number.MIN_SAFE_INTEGER;
   let n = arr.length;
   const DFS = (l, sum) => {
+    if (sum > c) return;
     if (l === n) {
-      if (sum < c) {
-        answer.push(sum);
-      }
+      answer = Math.max(answer, sum);
     } else {
       DFS(l + 1, sum + arr[l]);
       DFS(l + 1, sum);
     }
   };
   DFS(0, 0);
-  return Math.max(...answer);
+  return answer;
 }
 
 let arr = [81, 58, 42, 33, 61];

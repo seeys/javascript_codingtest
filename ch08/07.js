@@ -1,20 +1,17 @@
 function solution(m, ps, pt) {
-  let answer = [];
+  let answer = Number.MIN_SAFE_INTEGER;
   let n = ps.length;
-  let score = 0;
   const DFS = (l, time, score) => {
+    if (time > m) return;
     if (l === n) {
-      if (time <= m) {
-        answer.push(score);
-        return;
-      }
+      answer = Math.max(answer, score);
     } else {
       DFS(l + 1, time + pt[l], score + ps[l]);
       DFS(l + 1, time, score);
     }
   };
   DFS(0, 0, 0);
-  return Math.max(...answer);
+  return answer;
 }
 
 let ps = [10, 25, 15, 6, 7];

@@ -3,8 +3,8 @@ function solution(m, arr) {
   let cnt = 0;
   let res = Array.from({ length: m }, () => 0);
   let visited = Array.from({ length: arr.length }, () => 0);
-  const DFS = (v) => {
-    if (v === m) {
+  const DFS = (L) => {
+    if (L === m) {
       answer.push(res.slice());
       cnt++;
       return;
@@ -12,8 +12,8 @@ function solution(m, arr) {
       for (let i = 0; i < arr.length; i++) {
         if (!visited[i]) {
           visited[i] = 1;
-          res[v] = arr[i];
-          DFS(v + 1);
+          res[L] = arr[i];
+          DFS(L + 1);
           visited[i] = 0;
         }
       }

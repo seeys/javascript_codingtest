@@ -6,7 +6,7 @@ function solution(n) {
     if (v === n + 1) {
       let tmp = "";
       for (let i = 1; i <= n; i++) {
-        if (checked[i] === 1) {
+        if (checked[i]) {
           tmp += i + " ";
         }
       }

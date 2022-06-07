@@ -1,8 +1,4 @@
-function solution(a) {
-  let answer = Math.ceil(a / 12);
-
-  return answer;
-}
+function solution(a) {}
 
 console.log(solution(25));
 console.log(solution(178));

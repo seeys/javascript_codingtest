@@ -1,8 +1,3 @@
-function solution(str) {
-  let answer;
-  answer = str.replace(/A/g,"#");
-  return answer;
-}
-
+function solution(str) {}
 
 console.log(solution("BANANA"));

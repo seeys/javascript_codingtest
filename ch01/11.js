@@ -1,14 +1,4 @@
-function solution(str) {
-  let answer = 0;
-  for (let i of str) {
-    // if(i==i.toUpperCase())
-    // i.charCodeAt 아스키코드로 변환
-    if (/[A-Z\W]/.test(i)) {
-      answer++;
-    }
-  }
-  return answer;
-}
+function solution(str) {}
 
 const str = "KoreaTimeGood";
 console.log(solution(str));

@@ -1,25 +1,29 @@
 function solution(arr) {
   let answer = 0;
-  const len = arr.length;
-  let res = Array.from(Array(len + 2), () => Array(len + 2).fill(0));
+  let n = arr.length;
+  let dx = [-1, 0, 1, 0];
+  let dy = [0, -1, 0, 1];
 
-  for (let i = 1; i < len + 1; i++) {
-    for (let j = 1; j < len + 1; j++) {
-      res[i][j] = arr[i - 1][j - 1];
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      let flag = 1;
+      for (let x = 0; x < 4; x++) {
+        let nx = i + dx[x];
+        let ny = j + dy[x];
+        if (
+          nx >= 0 &&
+          ny >= 0 &&
+          nx < n &&
+          ny < n &&
+          arr[i][j] <= arr[nx][ny]
+        ) {
+          flag = 0;
+          break;
+        }
+      }
+      if (flag) answer++;
     }
   }
-  for (let i = 1; i < len + 1; i++) {
-    for (let j = 1; j < len + 1; j++) {
-      if (
-        res[i][j] > res[i][j - 1] &&
-        res[i][j] > res[i][j + 1] &&
-        res[i][j] > res[i - 1][j] &&
-        res[i][j] > res[i + 1][j]
-      )
-        answer++;
-    }
-  }
-  console.log(res);
   return answer;
 }
 

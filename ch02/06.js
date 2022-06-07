@@ -1,29 +1,26 @@
 function solution(arr) {
-  let len = arr.length;
-  let max_n = [];
-  let sum1 = 0;
+  let max = Number.MIN_SAFE_INTEGER;
+  let n = arr.length;
+  let sum = 0;
   let sum2 = 0;
-  for (let i = 0; i < len; i++) {
-    sum1 = 0;
-    sum2 = 0;
-    for (let j = 0; j < len; j++) {
-      sum1 += arr[i][j];
-      sum2 += arr[j][i];
+  for (let i = 0; i < n; i++) {
+    max = Math.max(
+      max,
+      arr[i].reduce((acc, val) => acc + val, 0)
+    );
+    sum += arr[i][i]; // 대각선
+    sum2 += arr[n - 1 - i][i]; //반대 대각선
+  }
+  max = Math.max(max, sum, sum2);
+
+  for (let i = 0; i < n; i++) {
+    let sum3 = 0;
+    for (let j = 0; j < n; j++) {
+      sum3 += arr[j][i];
     }
+    max = Math.max(max, sum3);
   }
-  max_n.push(sum1);
-  max_n.push(sum2);
-  sum1 = 0;
-  sum2 = 0;
-  for (let i = 0; i < len; i++) {
-    sum1 += arr[i][i];
-    sum2 += arr[i][len - i - 1];
-  }
-  max_n.push(sum1);
-  max_n.push(sum2);
-  let answer = Math.max(...max_n);
-  console.log(max_n);
-  return answer;
+  return max;
 }
 let arr = [
   [10, 13, 10, 12, 15],

@@ -1,15 +1,14 @@
 function solution(arr) {
-  const len = arr.length;
-  let max_h = 0;
-  let answer = 0;
-  for (let i of arr) {
-    if (i > max_h) {
-      max_h = i;
-      answer++;
+  let max = arr[0];
+  let cnt = 1;
+  for (let x of arr) {
+    if (max < x) {
+      cnt++;
+      max = x;
     }
   }
-  return answer;
+  return cnt;
 }
 
-const arr = [130, 135, 148, 140, 145, 150, 150, 153];
+const arr = [136, 135, 148, 140, 145, 150, 150, 153];
 console.log(solution(arr));

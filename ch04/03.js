@@ -1,4 +1,27 @@
-function solution(arr) {}
+function solution(arr) {
+  let answer = 0;
+  let n = arr[0].length;
+  let m = arr.length;
+  let flag = true;
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= n; j++) {
+      if (i !== j) {
+        let cnt = 0;
+        for (let k = 0; k < m; k++) {
+          let pi = 0;
+          let pj = 0;
+          for (let s = 0; s < n; s++) {
+            if (arr[k][s] === i) pi = s;
+            if (arr[k][s] === j) pj = s;
+          }
+          if (pi < pj) cnt++;
+        }
+        if (cnt === m) answer++;
+      }
+    }
+  }
+  return answer;
+}
 
 let arr = [
   [3, 4, 1, 2],

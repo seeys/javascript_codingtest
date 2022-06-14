@@ -1,28 +1,23 @@
 function solution(a, b) {
   let answer = "YES";
-  a = a.split("").sort().join("");
-  b = b.split("").sort().join("");
-  console.log(a, b);
-  if (a === b) {
-    return answer;
-  } else {
-    return "NO";
-  }
-}
-
-function solution2(a, b) {
-  let answer = "YES";
-  let sH = new Map();
+  let aH = new Map();
+  let bH = new Map();
   for (let x of a) {
-    if (sH.has(x)) sH.set(x, sH.get(x) + 1);
-    else sH.set(x, 1);
+    if (aH.has(x)) aH.set(x, aH.get(x) + 1);
+    else aH.set(x, 1);
   }
   for (let x of b) {
-    if (!sH.has(x) || sH.get(x) === 0) return "NO";
-    sH.set(x, sH.get(x) - 1);
+    if (bH.has(x)) bH.set(x, bH.get(x) + 1);
+    else bH.set(x, 1);
+  }
+
+  console.log(aH, bH);
+  for (let [key, val] of aH) {
+    if (val != bH.get(key)) return "NO";
   }
   return answer;
 }
-let a = "AbaAeCe";
+
+let a = "AbaeCe";
 let b = "baeeACA";
 console.log(solution(a, b));

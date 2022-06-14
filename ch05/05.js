@@ -1,16 +1,12 @@
 function solution(k, a) {
-  let answer = 0;
-  let len = a.length;
+  let answer = Number.MIN_SAFE_INTEGER;
+  let n = a.length;
   let sum = 0;
-  for (let i = 0; i < k; i++) {
-    sum += a[i];
-  }
+  for (let i = 0; i < k; i++) sum += a[i];
   answer = sum;
-  for (let i = k; i < len; i++) {
+  for (let i = k; i < n; i++) {
     sum = sum + a[i] - a[i - k];
-    if (answer < sum) {
-      answer = sum;
-    }
+    answer = Math.max(answer, sum);
   }
   return answer;
 }

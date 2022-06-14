@@ -1,15 +1,20 @@
-function solution(arr) {}
+function solution(arr) {
+  let answer = 0;
+  let tmp = Array.from({ length: 73 }, () => 0);
+  for (let x of arr) {
+    for (let i = x[0]; i < x[1]; i++) {
+      tmp[i] += 1;
+    }
+  }
+  answer = Math.max(...tmp);
+  return answer;
+}
 
 let arr = [
-  [17, 28],
-  [6, 30],
-  [1, 27],
-  [19, 38],
-  [4, 46],
-  [23, 30],
-  [35, 43],
-  [26, 45],
-  [21, 31],
-  [11, 44],
+  [14, 18],
+  [12, 15],
+  [15, 20],
+  [20, 30],
+  [5, 14],
 ];
 console.log(solution(arr));

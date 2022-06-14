@@ -1,25 +1,4 @@
-function solution(board, moves) {
-  let answer = 0;
-  let stack = [];
-  let len = board[0].length;
-  for (let x of moves) {
-    for (let j = 0; j < len; j++) {
-      let doll = board[j][x - 1];
-      if (doll !== 0) {
-        if (stack.length > 0 && stack[stack.length - 1] === doll) {
-          answer += 2;
-          stack.pop();
-        } else {
-          stack.push(doll);
-        }
-        board[j][x - 1] = 0;
-        break;
-      }
-    }
-  }
-
-  return answer;
-}
+function solution(board, moves) {}
 
 let a = [
   [0, 0, 0, 0, 0],

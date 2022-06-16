@@ -1,11 +1,3 @@
-function solution(n) {
-  let answer;
-  const DFS = (v) => {
-    if (v === 1) return 1;
-    else return v * DFS(v - 1);
-  };
-  answer = DFS(n);
-  return answer;
-}
+function solution(n) {}
 
 console.log(solution(5));
